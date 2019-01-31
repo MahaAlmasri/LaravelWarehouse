@@ -9,7 +9,7 @@
 </div>
 
 <p>
-<a href="/{{$product->id}}/edit"> Edit </a>
+<a href="/{{ $product->id }}/edit"> Edit </a>
 </p>
 
 @endsection

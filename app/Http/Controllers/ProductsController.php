@@ -23,46 +23,35 @@ public function create()
 }
 
 
-public function edit($id)
+public function edit(product $product )
 {
-    $product = product::findOrFail($id);
+
 
     return view('edit', compact('product'));
 }
 
-public function update($id)
+public function update(product $product)
 {
-    $product = product::findOrFail($id);
-    $product->name=request('name');
-    $product->description=request('description');
-    $product->price=request('price');
-    $product->amount=request('amount');
-    $product->save();
+    $product->update(request(['name' , 'price' , 'description' , 'amount']));
     return redirect('/Products');
 }
 
-public function destroy($id)
+public function destroy(product $product)
 {
-    $product = product::findOrFail($id);
     $product->delete();
     return redirect('/Products');
 }
 
-public function show($id)
+public function show(product $product)
 {
-    $product = product::findOrFail($id);
+
 
     return view('show', compact('product'));
 }
 
 public function store()
 {
-    $product=new product();
-$product->name=request('name');
-$product->description=request('description');
-$product->price=request('price');
-$product->amount=request('amount');
-$product->save();
-return redirect('/Products');
+     product::create(request(['name' , 'price' , 'description' , 'amount']));
+     return redirect('/Products');
 }
 }

@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            Products
-        </title>
-    </head>
-<body>
+@extends('layout')
+
+@section('content')
+
+<h1> Products </h1>
 <ul>
     @foreach ($products as $product)
 
-    <li>
-    <a href="/{{$product->id}}">
-         {{$product->name}} </li> </a>
+   <h4> <li>
+    <a href="/{{ $product->id }}">
+         {{$product->name}}  </a> </li> </h4> <br>
     @endforeach
     </ul>
-</body>
-</html>
+    <a href="/create"> Add a Product </a>
+@endsection

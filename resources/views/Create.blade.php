@@ -1,31 +1,27 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title> Create a New Product </title>
-    </head>
-<body>
-<h1> Create a New Product </h1>
+@extends('layout')
+
+@section('content')
+<h1> Add a New Product </h1>
 
 <form method="POST" action="/Products">
     {{ csrf_field() }}
     <div>
         <input type="text" name="name" placeholder="product name....." >
-    </div>
+    </div><br>
     <div>
         <textarea name="description" placeholder="description.....">
          </textarea>
-    </div>
+    </div><br>
     <div>
         <input type="text" name="price" placeholder="price.....">
-    </div>
+    </div><br>
     <div>
             <input type="text" name="amount" placeholder="amount.....">
-        </div>
+        </div><br>
         <div>
             <button type="submit" > Create a new Project </button>
         </div>
 
 </form>
 
-</body>
-</html>
+@endsection

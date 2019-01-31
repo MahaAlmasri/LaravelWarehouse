@@ -15,9 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+//Route::resource('/','ProductsController');
 Route::get('/Products','ProductsController@index');
 Route::post('/Products','ProductsController@store');
-Route::get('/Create','ProductsController@create');
+Route::get('/create','ProductsController@create');
 Route::get('/{product}','ProductsController@show');
 Route::get('/{product}/edit','ProductsController@edit');
 Route::patch('/{product}','ProductsController@update');

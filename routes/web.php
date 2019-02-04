@@ -24,3 +24,7 @@ Route::get('/{product}','ProductsController@show');
 Route::get('/{product}/edit','ProductsController@edit');
 Route::patch('/{product}','ProductsController@update');
 Route::delete('/{product}','ProductsController@destroy');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

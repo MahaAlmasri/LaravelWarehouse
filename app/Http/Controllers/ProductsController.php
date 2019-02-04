@@ -51,6 +51,13 @@ public function show(product $product)
 
 public function store()
 {
+    //validation for controls
+    request()->validate([
+    'name' => ['required', 'min:3'],
+    'price' => 'required',
+    'description' => 'required',
+    'amount' => 'required'
+    ]);
      product::create(request(['name' , 'price' , 'description' , 'amount']));
      return redirect('/Products');
 }

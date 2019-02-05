@@ -16,14 +16,24 @@ Route::get('/', function () {
 });
 
 
-//Route::resource('/','ProductsController');
-Route::get('/Products','ProductsController@index');
-Route::post('/Products','ProductsController@store');
-Route::get('/create','ProductsController@create');
-Route::get('/{product}','ProductsController@show');
-Route::get('/{product}/edit','ProductsController@edit');
-Route::patch('/{product}','ProductsController@update');
-Route::delete('/{product}','ProductsController@destroy');
+
+Route::get('/Products/products','ProductsController@index');
+Route::post('/Products/products','ProductsController@store');
+Route::get('/Products/create','ProductsController@create');
+Route::get('/Products/{product}','ProductsController@show');
+Route::get('/Products/{product}/edit','ProductsController@edit');
+Route::patch('/Products/{product}','ProductsController@update');
+Route::delete('/Products/{product}','ProductsController@destroy');
+
+
+Route::get('/Orders/orders','OrderController@index');
+Route::post('/Orders/orders','OrderController@store');
+Route::get('/Orders/create','OrderController@create');
+Route::get('/Orders/{order}','OrderController@show');
+Route::get('/Orders/{order}/edit','OrderController@edit');
+Route::patch('/Orders/{order}','OrderController@update');
+Route::delete('/Orders/{order}','OrderController@destroy');
+
 
 Auth::routes();
 

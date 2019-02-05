@@ -14,13 +14,13 @@ public function index()
     $orders=order::all();
 
 
-    return view('orders', compact('orders'));
+    return view('/Orders/orders', compact('orders'));
 }
 
 public function create()
 {
 
-    return view('createOrder');
+    return view('/Orders/create');
 }
 
 
@@ -28,26 +28,26 @@ public function edit(order $order )
 {
 
 
-    return view('edit', compact('order'));
+    return view('/Orders/edit', compact('order'));
 }
 
 public function update(order $order)
 {
-    $order->update(request(['user_id']));
-    return redirect('/orders');
+    $order->update( {{ Auth::user()->id}} );
+    return redirect('/Orders/orders');
 }
 
 public function destroy(order $order)
 {
     $order->delete();
-    return redirect('/orders');
+    return redirect('/Orders/orders');
 }
 
 public function show(order $order)
 {
 
 
-    return view('show', compact('order'));
+    return view('/Orders/show', compact('order'));
 }
 
 public function store()
@@ -56,7 +56,7 @@ public function store()
     request()->validate([
     'user_id' => 'required'
     ]);
-     order::create(request(['user_id']));
-     return redirect('/orders');
+     order::create( {{ Auth::user()->id }} );
+     return redirect('/Orders/orders');
 }
    }

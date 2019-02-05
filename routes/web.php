@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 
+//Route::resource('Products/products','ProductsController');
 
 Route::get('/Products/products','ProductsController@index');
 Route::post('/Products/products','ProductsController@store');
